@@ -3,6 +3,7 @@
   "include": [
     "env.d.ts",
     "src/**/*.ts",
+    "src/**/*.d.ts",
     "src/**/*.vue",
     "auto-imports.d.ts",
     "components.d.ts"
@@ -11,8 +12,29 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
 
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // 解析非相对模块的基地址，默认是当前目录
     "baseUrl": ".",
+    // 路径映射，相对于baseUrl
     "paths": {
       "@/*": ["./src/*"]
     }
